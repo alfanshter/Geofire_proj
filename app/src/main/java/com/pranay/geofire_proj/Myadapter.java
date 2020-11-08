@@ -36,7 +36,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.Myholder>
         Mylist mylist=list.get(position);
 
         holder.id.setText(mylist.getId());
-        holder.name.setText(mylist.getName());
+        holder.name.setText(mylist.getnama());
 
 
 

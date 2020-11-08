@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.my_rec);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference= FirebaseDatabase.getInstance().getReference().child(("my_keys"));
+        databaseReference= FirebaseDatabase.getInstance().getReference().child(("Pandaan/LokasiToko"));
 
         GeoFire fire=new GeoFire(databaseReference);
 //
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
-        fire.queryAtLocation(new GeoLocation(20.992097, 77.737740),5).addGeoQueryEventListener(new GeoQueryEventListener() {
+        fire.queryAtLocation(new GeoLocation(-7.713322, 112.914834),5).addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
                 Log.i("key",key);
@@ -96,14 +96,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Mylist> arrayList=new ArrayList<>();
     private void getitems(String key)
     {
-        reference=FirebaseDatabase.getInstance().getReference().child("my_items").child(key);
+        reference=FirebaseDatabase.getInstance().getReference().child("Pandaan/Resto").child(key);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 Mylist mylist=new Mylist();
                 mylist.setId(snapshot.child("id").getValue().toString());
-                mylist.setName(snapshot.child("name").getValue().toString());
+                mylist.setnama(snapshot.child("nama").getValue().toString());
                 arrayList.add(mylist);
                 myadapter=new Myadapter(arrayList,MainActivity.this);
                 recyclerView.setAdapter(myadapter);

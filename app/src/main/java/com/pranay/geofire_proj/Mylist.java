@@ -3,11 +3,11 @@ package com.pranay.geofire_proj;
 public class Mylist
 {
     String id;
-    String name;
+    String nama;
 
-    public Mylist(String id, String name) {
+    public Mylist(String id, String nama) {
         this.id = id;
-        this.name = name;
+        this.nama = nama;
     }
 
     public Mylist() {
@@ -22,11 +22,11 @@ public class Mylist
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getnama() {
+        return nama;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setnama(String nama) {
+        this.nama = nama;
     }
 }
